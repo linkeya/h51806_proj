@@ -50,7 +50,8 @@ require(["config"], function() {
 			//初始化
 			init() {
 				this.createDom();
-				this.createModal();
+				this.loadUser();
+				this.addListener();
 			},
 			//创建DOM
 			createDom() {
@@ -62,7 +63,9 @@ require(["config"], function() {
 				const user = sessionStorage.username;
 				if(user) {
 					$(".login-success").removeClass("hidden").prev("ul").remove();
-					$(".login-")
+					$(".login-success a:first").html("欢迎：" + user);
+				} else {
+					this.createModal();
 				}
 			},
 

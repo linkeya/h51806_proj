@@ -2,7 +2,6 @@ function RegisterModal() {
 	this.createDom();
 	this.addListener();
 	this.genCode();
-
 }
 
 RegisterModal.ModalTemplate = `<div class="modal fade" id="regModal" tabindex="-1" role="dialog">
@@ -74,7 +73,7 @@ $.extend(RegisterModal.prototype, {
 	},
 	registerHandler() {
 		const data = $(".form-register").serialize();
-		const url = "http://rap2api.taobao.org/app/mock/115310/api/register";
+		const url = "/api/users/register";
 		$.post(url, data, (data) => {
 			if(data.res_body.status === 1) {
 				sessionStorage.username = data.res_body.data.username;

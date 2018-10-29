@@ -57,13 +57,13 @@ $.extend(LoginModal.prototype, {
 	},
 	loginHandler() {
 		const data = $(".form-login").serialize();
-		const url = "http://rap2api.taobao.org/app/mock/115310/api/login";
+		const url = "/api/users/login";
 		$.post(url, data, (data) => {
 			if(data.res_body.status === 1) {
 				//				$.cookie("username", data.res_body.data.username);
-				sessionStorage.setItem("usernme", data.res_body.data.username);
+				sessionStorage.setItem("username", data.res_body.data.username);
 				//刷新页面
-				//				location.reload();
+				location.reload();
 			} else { //登录失败
 				$(".login-error").removeClass("hidden");
 			}
@@ -103,6 +103,6 @@ $.extend(LoginModal.prototype, {
 			if($(src).val()==="")
 				$("#loginPassword").prop("disabled","disabled");
 		}*/
-		
+
 	}
 });
