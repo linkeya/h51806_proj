@@ -3,7 +3,6 @@ const PositionDao = require("../../dao/position/position_dao.js");
 const PositionService = {
 	//添加职位
 	add(req, res, next) {
-		console.log("hahahha 巧");
 		//获取POST请求中传递的数据
 		const {
 			posName,
@@ -20,7 +19,6 @@ const PositionService = {
 				workPlace,
 				salary
 			})
-
 			.then((data) => {
 				res.json({
 					res_code: 1,

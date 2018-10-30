@@ -11,6 +11,7 @@ var storage = multer.diskStorage({
 		cb(null, path.join(__dirname, "../public/images/upload/"));
 	},
 	filename: function(req, file, cb) {
+		console.log("文件名"+file);
 		//文件后缀
 		const ext = file.originalname.slice(file.originalname.lastIndexOf("."));
 		cb(null, file.filename + '-' + Date.now() + ext);

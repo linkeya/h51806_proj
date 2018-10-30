@@ -5,7 +5,6 @@ const UserDao = require("../../dao/user/user_dao.js");
 const UserService = {
 	//登录
 	login(req, res, next) {
-		console.log("我在登录");
 		//post方式获取数据
 		const {
 			username,
