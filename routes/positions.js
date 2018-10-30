@@ -11,10 +11,9 @@ var storage = multer.diskStorage({
 		cb(null, path.join(__dirname, "../public/images/upload/"));
 	},
 	filename: function(req, file, cb) {
-		console.log("文件名"+file);
 		//文件后缀
 		const ext = file.originalname.slice(file.originalname.lastIndexOf("."));
-		cb(null, file.filename + '-' + Date.now() + ext);
+		cb(null, file.fieldname + '-' + Date.now() + ext);
 	}
 });
 
@@ -25,5 +24,12 @@ var upload = multer({
 });
 
 router.post("/add", upload.single("logo"), PositionService.add);
+
+//按页查询职位
+//完整路径:"/api/positions/find_by_page"
+router.get("/find_by_page", PositionService.findByPage);
+
+//删除
+router.get("/delete", PositionService.delete);
 
 module.exports = router;
